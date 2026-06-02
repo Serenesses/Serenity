@@ -1,11 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+<svg xmlns="http://w3.org" viewBox="0 0 120 120" width="120" height="120">
   <defs>
-    <!-- Perfect circle mask to clip your profile picture -->
+    <!-- Multi-stop linear gradient mapping that mimics a rainbow spectrum -->
+    <linearGradient id="rainbow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0055" />
+      <stop offset="25%" stop-color="#7a00ff" />
+      <stop offset="50%" stop-color="#00e5ff" />
+      <stop offset="75%" stop-color="#00ff66" />
+      <stop offset="100%" stop-color="#ffea00" />
+    </linearGradient>
+
+    <!-- Perfect circle mask to clip your profile picture shape -->
     <clipPath id="circle-clip">
-      <circle cx="60" cy="60" r="48" />
+      <circle cx="60" cy="60" r="46" />
     </clipPath>
 
-    <!-- The continuous spinning animation loop -->
+    <!-- The continuous native spin animation loop configuration -->
     <style>
       @keyframes spin {
         0% { transform: rotate(0deg); }
@@ -13,24 +22,21 @@
       }
       .rotating-gradient {
         transform-origin: 60px 60px;
-        animation: spin 4s linear infinite;
+        animation: spin 3s linear infinite;
       }
     </style>
   </defs>
 
-  <!-- BACKGROUND: The rotating rainbow gradient disc -->
-  <g class="rotating-gradient">
-    <image width="160" height="160" x="-20" y="-20" 
-           href="https://codepen.io" />
-  </g>
+  <!-- BACKGROUND: The rotating rainbow gradient circle layer -->
+  <circle class="rotating-gradient" cx="60" cy="60" r="54" fill="url(#rainbow-grad)" />
 
-  <!-- INNER SHIELD: Prevents the center from showing excess rainbow bleed -->
-  <circle cx="60" cy="60" r="51" fill="#0d1117" />
+  <!-- INNER SHIELD: Separator that matches GitHub profile card backgrounds -->
+  <circle cx="60" cy="60" r="49" fill="#0d1117" />
 
-  <!-- PROFILE PICTURE: Your profile image nested inside a safe SVG vector tag -->
-  <!-- REPLACE THE HREF BELOW WITH YOUR BASE64 TEXT OR TRUStED IMAGE LINK -->
-<g clip-path="url(#circle-clip)">
-  <image width="96" height="96" x="12" y="12" 
-         href="https://github.com/Serenesses" />
+  <!-- PROFILE PICTURE: Your profile image nested inside a safe SVG clip mask -->
+  <!-- REPLACE THE HREF VALUE BELOW WITH YOUR ACCOUNT HANDLE PATH -->
+  <g clip-path="url(#circle-clip)">
+    <image width="92" height="92" x="14" y="14" 
+           href="https://github.com/Serenesses" />
   </g>
 </svg>
