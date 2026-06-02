@@ -1,0 +1,56 @@
+<svg fill="none" viewBox="0 0 120 120" width="120" height="120" xmlns="http://w3.org">
+  <foreignObject x="0" y="0" width="100%" height="100%">
+    <div xmlns="http://w3.org">
+      <style>
+        .rainbow-avatar {
+          position: relative;
+          width: 110px;
+          height: 110px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          box-shadow: 0 0 15px rgba(255, 0, 128, 0.3);
+        }
+
+        .rainbow-avatar::before {
+          content: '';
+          position: absolute;
+          width: 150%;
+          height: 150%;
+          background: conic-gradient(#ff0055, #7a00ff, #00e5ff, #00ff66, #ffea00, #ff0055);
+          animation: spin 3s linear infinite;
+        }
+
+        .rainbow-avatar::after {
+          content: '';
+          position: absolute;
+          inset: 4px;
+          background: #0d1117; /* Matches GitHub's dark mode background */
+          border-radius: 50%;
+          z-index: 1;
+        }
+
+        .rainbow-avatar img {
+          position: relative;
+          width: calc(100% - 12px);
+          height: calc(100% - 12px);
+          object-fit: cover;
+          border-radius: 50%;
+          z-index: 2;
+        }
+
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      </style>
+
+      <div class="rainbow-avatar">
+        <!-- REPLACE THE URL BELOW WITH YOUR ACTUAL PFP URL OR GITHUB IMAGE PATH -->
+        <img src="https://github.com/Serenesses" alt="Profile Picture" />
+      </div>
+    </div>
+  </foreignObject>
+</svg>
