@@ -1,56 +1,36 @@
-<svg fill="none" viewBox="0 0 120 120" width="120" height="120" xmlns="http://w3.org">
-  <foreignObject x="0" y="0" width="100%" height="100%">
-    <div xmlns="http://w3.org">
-      <style>
-        .rainbow-avatar {
-          position: relative;
-          width: 110px;
-          height: 110px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          box-shadow: 0 0 15px rgba(255, 0, 128, 0.3);
-        }
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <!-- Perfect circle mask to clip your profile picture -->
+    <clipPath id="circle-clip">
+      <circle cx="60" cy="60" r="48" />
+    </clipPath>
 
-        .rainbow-avatar::before {
-          content: '';
-          position: absolute;
-          width: 150%;
-          height: 150%;
-          background: conic-gradient(#ff0055, #7a00ff, #00e5ff, #00ff66, #ffea00, #ff0055);
-          animation: spin 3s linear infinite;
-        }
+    <!-- The continuous spinning animation loop -->
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .rotating-gradient {
+        transform-origin: 60px 60px;
+        animation: spin 4s linear infinite;
+      }
+    </style>
+  </defs>
 
-        .rainbow-avatar::after {
-          content: '';
-          position: absolute;
-          inset: 4px;
-          background: #0d1117; /* Matches GitHub's dark mode background */
-          border-radius: 50%;
-          z-index: 1;
-        }
+  <!-- BACKGROUND: The rotating rainbow gradient disc -->
+  <g class="rotating-gradient">
+    <image width="160" height="160" x="-20" y="-20" 
+           href="https://codepen.io" />
+  </g>
 
-        .rainbow-avatar img {
-          position: relative;
-          width: calc(100% - 12px);
-          height: calc(100% - 12px);
-          object-fit: cover;
-          border-radius: 50%;
-          z-index: 2;
-        }
+  <!-- INNER SHIELD: Prevents the center from showing excess rainbow bleed -->
+  <circle cx="60" cy="60" r="51" fill="#0d1117" />
 
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      </style>
-
-      <div class="rainbow-avatar">
-        <!-- REPLACE THE URL BELOW WITH YOUR ACTUAL PFP URL OR GITHUB IMAGE PATH -->
-        <img src="https://github.com/Serenesses" alt="Profile Picture" />
-      </div>
-    </div>
-  </foreignObject>
+  <!-- PROFILE PICTURE: Your profile image nested inside a safe SVG vector tag -->
+  <!-- REPLACE THE HREF BELOW WITH YOUR BASE64 TEXT OR TRUStED IMAGE LINK -->
+  <g clip-path="url(#circle-clip)">
+    <image width="96" height="96" x="12" y="12" 
+           href="https://github.com/Serenesses" />
+  </g>
 </svg>
