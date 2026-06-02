@@ -1,0 +1,29 @@
+<svg xmlns="http://w3.org" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <!-- A linear gradient that mimics a rainbow spectrum -->
+    <linearGradient id="rainbow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0055" />
+      <stop offset="25%" stop-color="#7a00ff" />
+      <stop offset="50%" stop-color="#00e5ff" />
+      <stop offset="75%" stop-color="#00ff66" />
+      <stop offset="100%" stop-color="#ffea00" />
+    </linearGradient>
+
+    <!-- A circular clipping mask to force your photo into a perfect circle -->
+    <clipPath id="circle-clip">
+      <circle cx="60" cy="60" r="46" />
+    </clipPath>
+  </defs>
+
+  <!-- The outer rainbow ring -->
+  <circle cx="60" cy="60" r="54" fill="url(#rainbow-grad)" />
+
+  <!-- A thin dark separator matching GitHub's dark theme background -->
+  <circle cx="60" cy="60" r="49" fill="#0d1117" />
+
+  <!-- Your actual profile image cropped by the circle mask -->
+  <g clip-path="url(#circle-clip)">
+    <!-- REPLACE 'YOUR_USERNAME' WITH YOUR ACTUAL GITHUB USERNAME HANDLE -->
+    <image width="92" height="92" x="14" y="14" href="https://github.com/Serenesses" />
+  </g>
+</svg>
